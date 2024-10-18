@@ -3,12 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RS</title>
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <title>AzurTechRs</title>
 </head>
 <body>
-    <main id="feed">
-        
+    <main id="main" class="main-index">
+      <!-- Sidebar -->
+        <nav class="navbar">
+          <div class="nav-left">
+              <button id="toggleSidebarBtn" class="toggle-btn">☰</button>
+            </div>
+            <div class="content-nav">
+                <h1 class="title-rs">AzurTechRS</h1>
+                <hr class="hr">
+            </div>
+            <div class="user-nav">
+                <!--avatar-->
+                <img src="https://images.unsplash.com/photo-1728577740843-5f29c7586afe?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                alt="User Avatar" class="user-avatar" id="avatar">
+                
+                <!-- Menu dropdown -->
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="#" >Profil</a>
+                    <a href="#">Paramètres</a>
+                    <a href="#">Déconnexion</a>
+                </div>
+            </div>
+        </nav>
+
+    <div id="sidebar" class="sidebar">
+        <a href="#" class="closebtn" id="closeSidebarBtn">X</a>
+        <a href="#" data-target="posts/post">Feeds</a>
+        <a href="#" data-target="friends/friends">Amis</a>
+        <a href="#" data-target="messages/message">Messages</a>
+    </div>
+
+    <!-- Contenu principal -->
+    <div id="main-content" class="content">
+        <h2>AzurTechRS</h2>
+        <p>Le réseau social de la tech et du futur</p>
+    </div>
     </main>
-<script src="js/feed.js"></script>
+
+<script src="assets/scripts/js/components/content/content.js"></script>
+<script src="assets/scripts/js/components/sidebar/sidebar.js"></script>
+<script src="assets/scripts/js/components/avatar/avatar.js"></script>
 </body>
 </html>

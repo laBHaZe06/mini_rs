@@ -1,0 +1,20 @@
+:root {
+    --success: ;
+    --warning: ;
+    --danger: ;
+    --primary: ;
+    --white: rgb(235, 232, 232);
+
+    --linear-nav: linear-gradient(to right top, #3f5764, #3f6583, #4c71a3, #6b79bf, #977dd4);
+    --linear-2: ;
+    --linear-3: ;
+
+    --dark: rgb(43, 43, 43);
+    --light: ;
+
+    --font-color-1: #333;
+    --font-color-2: ;
+    --font-color-3: ;
+
+    --bg-sidebar: #426489;
+}

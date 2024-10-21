@@ -4,23 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Messagerie - Mini Réseau Social</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="../../assets/styles/messages/messages.css">
 </head>
 <body>
   <header>
 </header>
 
 <div class="container-chat">
+    <h1>Messagerie</h1>
+    <hr>
+    <h4>Discussion en cour</h4>
     <div class="content-chat">
-            <h1>Messagerie</h1>
+        <div class="progress-chat">
             <div id="conversations"></div>
-            <div id="chat">
-                <div id="chatWindow"></div>
-                <div id="chatInput">
-                    <textarea id="messageBox" rows="3" placeholder="Tapez votre message..."></textarea>
-                    <button id="sendButton">Envoyer</button>
-                </div>
-            </div>
+        </div>
+        <div id="chat" class="chat">
+            <div id="chatWindow"></div>
+        </div>
+    </div>
+        <div id="chatInput">
+            <textarea id="messageBox" class="box-chat" rows="3" placeholder="Tapez votre message..."></textarea>
+            <button id="sendButton">Envoyer</button>
         </div>
     </div>
 

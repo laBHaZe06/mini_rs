@@ -66,19 +66,20 @@
   
             const friendContent = `
                 <div class="card-header">
-                        <img src="${friend.image}" alt="${friend.name}">
+                <img src="${friend.image}" alt="${friend.name}">
                 </div>
-                 <div class="friend-presentation">
-                    <p>${friend.name}</p><br/>
-                    <p>Age: ${friend.age}</p>
-                    <p>Email : ${friend.email} </p>
-                    <p>Téléphone: ${friend.phone}</p>
-                    <p>Adresse: ${friend.address}</p>
-                </div>
-                  <div class="reactions">
-                      <button onclick="likefriend(${friend.id})"><span id="like-${friend.id}"><i class="fa-regular fa-thumbs-up"></i>&nbsp;&nbsp;${friend.reactions.like}</span></button>
-                      <button onclick="lovefriend(${friend.id})"><span id="love-${friend.id}"><i class="fa-regular fa-heart"></i>&nbsp;&nbsp;${friend.reactions.love}</span></button>
-                      <button onclick="dislikefriend(${friend.id})"><span id="dislike-${friend.id}"><i class="fa-regular fa-thumbs-down"></i>&nbsp&nbsp;${friend.reactions.dislike}</span></button>
+                <div class="friends-presentation">
+                <p>${friend.name}</p><br/>
+                <p>Age: ${friend.age}</p>
+                <p>Email : ${friend.email} </p>
+                <p>Téléphone: ${friend.phone}</p>
+                <p>Adresse: ${friend.address}</p>
+                <a class="sidebar-link" data-target="messages/messages"><i class="fa-solid fa-message"></i>&nbsp;Envoyer message</a>
+                    </div>
+                    <div class="reactions">
+                    <button onclick="likefriend(${friend.id})"><span id="like-${friend.id}"><i class="fa-regular fa-thumbs-up"></i>&nbsp;&nbsp;${friend.reactions.like}</span></button>
+                    <button onclick="lovefriend(${friend.id})"><span id="love-${friend.id}"><i class="fa-regular fa-heart"></i>&nbsp;&nbsp;${friend.reactions.love}</span></button>
+                    <button onclick="dislikefriend(${friend.id})"><span id="dislike-${friend.id}"><i class="fa-regular fa-thumbs-down"></i>&nbsp&nbsp;${friend.reactions.dislike}</span></button>
                   </div>`;
   
               friendElement.innerHTML = friendContent;

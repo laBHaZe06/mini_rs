@@ -25,6 +25,10 @@ h2 {
     margin-bottom: 1.5rem;
   }
 
+  .friends-presentation{
+    width: 35%;
+  }
+
   .container-friends{
     height: 20rem;
     padding: 20px;

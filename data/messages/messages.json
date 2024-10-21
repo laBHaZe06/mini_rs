@@ -1,18 +1,23 @@
 [
     {
       "id": 1,
-      "name": "Alice",
+      "name": "Emilie",
       "messages": [
-        { "sender": "Emilie", "content": "Salut, comment ça va ?", "time": "10:00" },
-        { "sender": "Moi", "content": "Ça va bien, et toi ?", "time": "10:05" }
+        { "sender": "Emilie", "content": "Salut, comment ça va ?", "time": "10:00" }
       ]
     },
     {
       "id": 2,
-      "name": "Bob",
+      "name": "Jacky",
       "messages": [
-        { "sender": "Jacky", "content": "On commence quand le projet ?", "time": "09:00" },
-        { "sender": "Moi", "content": "Dès que possible !", "time": "09:05" }
+        { "sender": "Jacky", "content": "On commence quand le projet ?", "time": "09:00" }
       ]
-    }
+    },
+    {
+        "id": 3,
+        "name": "Dupont",
+        "messages": [
+          { "sender": "Dupont", "content": "On se voit today ?", "time": "09:10" }
+        ]
+      }
   ]

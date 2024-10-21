@@ -1,0 +1,32 @@
+.content-chat{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.progress-chat{
+    overflow-y: auto;
+    height: 25rem;
+    width: 50%
+}
+.conversation-in-progress{
+    border: 1px solid rgba(128, 128, 128, 0.527);
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.chat{
+    margin-left: 1rem;
+    width: 40%;
+}
+.box-chat{
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+    border-radius: 5px;
+    padding-top: 3px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+}

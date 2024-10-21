@@ -1,0 +1,18 @@
+[
+    {
+      "id": 1,
+      "name": "Alice",
+      "messages": [
+        { "sender": "Emilie", "content": "Salut, comment ça va ?", "time": "10:00" },
+        { "sender": "Moi", "content": "Ça va bien, et toi ?", "time": "10:05" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Bob",
+      "messages": [
+        { "sender": "Jacky", "content": "On commence quand le projet ?", "time": "09:00" },
+        { "sender": "Moi", "content": "Dès que possible !", "time": "09:05" }
+      ]
+    }
+  ]

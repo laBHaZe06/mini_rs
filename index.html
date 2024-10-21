@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/styles/styles.css">
-    <title>AzurTechRs</title>
+    <title>TechLinker</title>
 </head>
 <body>
     <main id="main" class="main-index">
@@ -14,8 +15,7 @@
               <button id="toggleSidebarBtn" class="toggle-btn">☰</button>
             </div>
             <div class="content-nav">
-                <h1 class="title-rs">AzurTechRS</h1>
-                <hr class="hr">
+                <h1 class="title-rs">TechLinker</h1>
             </div>
             <div class="user-nav">
                 <!--avatar-->
@@ -30,10 +30,11 @@
                 </div>
             </div>
         </nav>
+       
 
     <div id="sidebar" class="sidebar">
         <a href="#" class="closebtn" id="closeSidebarBtn">X</a>
-        <a href="#" class="sidebar-link" data-target="posts/post">Feeds</a>
+        <a href="#" class="sidebar-link" data-target="posts/posts">Publication</a>
         <a href="#" class="sidebar-link" data-target="friends/friends">Amis</a>
         <a href="#" class="sidebar-link" data-target="messages/message">Messages</a>
     </div>
@@ -43,9 +44,24 @@
         <h2>AzurTechRS</h2>
         <p>Le réseau social de la tech et du futur</p>
     </div>
+
+    <div class="center-btn-resp">
+        <div class="btn-resp-post">
+            <a class="sidebar-link" data-target="posts/posts"><i class="fa-solid fa-address-card"></i></a>
+        </div>
+        <div class="btn-resp-friends">
+            <a class="sidebar-link" data-target="friends/friends"><i class="fa-solid fa-user-group"></i></a>
+        </div>
+        <div class="btn-resp-messages">
+            <a class="sidebar-link" data-target="messages/message"><i class="fa-solid fa-message"></i></a>
+        </div>
+    </div>
     </main>
 
-<script src="assets/scripts/js/components/content/content.js"></script>
+<script src="assets/scripts/js/content/content.js"></script>
+<script src="assets/scripts/js/feeds/feed.js"></script>
+<script src="assets/scripts/js/friends/friends.js"></script>
+<script src="assets/scripts/js/messages/messages.js"></script>
 <script src="assets/scripts/js/components/sidebar/sidebar.js"></script>
 <script src="assets/scripts/js/components/avatar/avatar.js"></script>
 </body>

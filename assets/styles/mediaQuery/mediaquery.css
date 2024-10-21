@@ -1,0 +1,75 @@
+@media (min-width: 768px) {
+  .center-btn-resp {
+    display: none;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .toggle-btn {
+    display: none; /* Cache le bouton de la sidebar en haut */
+  }
+
+  /* Affiche le menu en bas de l'écran sur mobile */
+  .center-btn-resp  {
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    justify-content: space-around;
+    bottom: 35px;
+    width: 100%; 
+    background-image: var(--linear-1);
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+  }
+
+  .btn-resp-post a,
+  .btn-resp-friends a,
+  .btn-resp-messages a{
+   color: var(--white);
+   padding: 3px;
+   border-radius: .5rem;
+   font-size: 25px;
+   margin: 8px;
+  }
+
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title-rs {
+    font-size: 2em;
+  }
+
+  .user-nav {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .user-avatar {
+    width: 2rem;
+  }
+}
+
+/* Media Queries pour les très petits écrans (480px et moins) */
+@media only screen and (max-width: 480px) {
+  .center-btn-resp{
+    font-size: 35px; /* Réduction de la taille du bouton sur les très petits écrans */
+    padding: 0.4rem 0.9rem;
+  }
+
+  .title-rs {
+    font-size: 1.6em;
+  }
+
+  .user-nav {
+    margin-top: 0.5rem;
+  }
+
+  .user-avatar {
+    width: 1.8rem;
+  }
+}

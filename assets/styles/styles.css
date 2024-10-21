@@ -19,6 +19,10 @@ html,body, .main-index{
     width: 100%;
 }
 
+.main-content{
+    width: 100%;
+}
+
 .user-nav{
     display: flex;
     justify-content: space-between;
@@ -44,6 +48,7 @@ h1.title-rs{
     padding: 0;
     position: sticky;
     top: 0;
+    z-index: 999;
     
 }
 
@@ -68,6 +73,7 @@ h1.title-rs{
 
 /* Style de la sidebar */
 .sidebar {
+    z-index:999;
     height: 100%;
     width: 250px;
     position: fixed;
@@ -211,5 +217,96 @@ h1.title-rs{
 .dropdown-menu a:hover {
     background-color: #a58ec985;
 }
+
+/* card styles */ 
+
+.card-header {
+    width: 40%;
+  }
+
+.card-header img {
+    border-radius: .3rem;
+    height: 12rem;
+    width: 15rem;
+  }
+  
+  .reactions {
+    display: flex;
+    margin-top: 35px;
+    width: 100%;
+  }
+  
+  .reactions button {
+    background: #c09dddbe;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 3px 3px 8px #b0b0b0, -3px -3px 8px #ffffff;
+    transition: all 0.3s ease;
+  }
+  
+  .reactions button:hover {
+    box-shadow: 2px 2px 5px #b0b0b0, -2px -2px 5px #ffffff;
+  }
+  
+  .comments {
+    margin-top: 20px;
+    display: flex;
+
+  }
+  .comments-content {
+    display: none;
+    margin-top: 10px; 
+    padding: 10px;
+    border: 1px solid #ddd; 
+    background-color: #f9f9f9; 
+  }
+  .comments input {
+   
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .comments .btn-form-com {
+ 
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #464b4abe;
+    background: #76d1c5a8;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  }
+.btn-com{
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid #464b4abe;
+  background: #dac4a3;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+  .comments-content{
+    border: 1px solid rgba(83, 83, 83, 0.637);
+    width: 25rem;
+    border-radius: 5px;
+    overflow-y: auto;
+    opacity: 1;
+    transform: translateY(.1rem);
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(-2rem); 
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  }
+
 
 

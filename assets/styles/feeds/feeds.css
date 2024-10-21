@@ -9,26 +9,20 @@
   }
 
   .container-post{
-    display: flex;
-    flex-wrap: wrap;
+    
     height: 20rem;
     padding: 20px;
     margin-bottom: 20px;
   }
 
-  .content-form{
-    width: 40%;
-  }
-
-  .content-post{
-    width: 60%;
-  }
-
   .post {
-    font-size: 1em;
     display: flex;
-    width: 98%;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 3;
+    font-size: 1em;
     flex-direction: row;
+    transition: transform 0.3s ease-in-out;
     border-radius: .8rem;
     padding: .5rem;
     margin-bottom: 15px;
@@ -37,57 +31,4 @@
     margin-bottom: 1.5rem;
     
   }
-  .post-header {
-    width: 35%;
-  }
-
-  .post-header img {
-    border-radius: .3rem;
-    height: 12rem;
-    width: 10rem;
-  }
-  
-  .reactions {
-    display: block;
-    margin-top: 35px;
-    width: 90%;
-  }
-  
-  .reactions button {
-    background: #b96b99;
-    border: none;
-    border-radius: 15px;
-    padding: 10px 15px;
-    font-size: 1em;
-    cursor: pointer;
-    box-shadow: 3px 3px 8px #b0b0b0, -3px -3px 8px #ffffff;
-    transition: all 0.3s ease;
-  }
-  
-  .reactions button:hover {
-    box-shadow: 2px 2px 5px #b0b0b0, -2px -2px 5px #ffffff;
-  }
-  
-  .comments {
-    margin-top: 20px;
-  }
-  
-  .comments input {
-    width: 70%;
-    padding: 10px;
-    border-radius: 15px;
-    border: 1px solid #ccc;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-
-  .comments button {
-    width: 40%;
-    padding: 10px;
-    border-radius: 15px;
-    border: 1px solid #464b4abe;
-    background: #99d8d0;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-  }
+ 

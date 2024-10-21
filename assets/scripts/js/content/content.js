@@ -19,10 +19,10 @@ async function loadContent(target) {
     const mainContent = document.getElementById('main-content');
 
     mainContent.innerHTML = content; // Remplace le contenu actuel par celui chargé
-    console.log("Contenu chargé : ", content);
+    // console.log("Contenu chargé : ", content);
 
     if (target === 'posts/posts') {
-        console.log("Chargement de la page des posts...");
+        // console.log("Chargement de la page des posts...");
 
         // Charger dynamiquement le script feed.js
         const script = document.createElement('script');
@@ -36,6 +36,37 @@ async function loadContent(target) {
             }
         };
         document.body.appendChild(script);
+    } else if (target === 'friends/friends') {
+        // console.log("Chargement de la page des amis...");
+
+        // Charger dynamiquement le script friends.js
+        const script = document.createElement('script');
+        script.src = 'assets/scripts/js/friends/friends.js';
+        script.onload = function() {
+            console.log('friends.js chargé');
+            if (typeof displayFriend === 'function') {
+                displayFriend(); // Appelle la fonction après que le script est chargé
+            } else {
+                console.log("La fonction displayFriend n'existe pas.");
+            }
+        };
+        document.body.appendChild(script);
+    } else if (target === 'messages/message') {
+        // console.log("Chargement de la page des messages...");
+
+        // Charger dynamiquement le script messages.js
+        const script = document.createElement('script');
+        script.src = 'assets/scripts/js/messages/messages.js';
+        script.onload = function() {
+            console.log('messages.js chargé');
+            if (typeof displayMessage === 'function') {
+                displayMessage(); // Appelle la fonction après que le script est chargé
+            } else {
+                console.log("La fonction displayMessage n'existe pas.");
+            }
+        };
+        document.body.appendChild(script);
+    
     }
 
 }

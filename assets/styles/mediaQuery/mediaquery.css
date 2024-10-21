@@ -7,7 +7,14 @@
   .toggle-btn {
     display: none; /* Cache le bouton de la sidebar en haut */
   }
-
+  .post, .friends{
+    width: 100%;
+    display: block;
+  }
+  .friend-presentation{
+    width: 100%;
+  }
+  
   /* Affiche le menu en bas de l'écran sur mobile */
   .center-btn-resp  {
     display: flex;
@@ -15,7 +22,7 @@
     flex-direction: row;
     justify-content: space-around;
     bottom: 35px;
-    width: 100%; 
+    width: 99%; 
     background-image: var(--linear-1);
     font-size: 40px;
     cursor: pointer;
@@ -59,6 +66,23 @@
   .center-btn-resp{
     font-size: 35px; /* Réduction de la taille du bouton sur les très petits écrans */
     padding: 0.4rem 0.9rem;
+  }
+  .post, .friends{
+    width: 100%;
+    display: block;
+  }
+  .friend-presentation{
+    width: 100%;
+  }
+  
+.content-form {
+  display: none;
+}
+  .content-post{
+    width: 100%;
+  }
+  .post{
+    width: 100%;
   }
 
   .title-rs {

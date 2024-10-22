@@ -7,6 +7,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Mettre à jour le cache de paquets
+          command: sudo apt-get update
+      - run:
           name: Installer un serveur HTTP (optionnel)
           command: sudo apt-get install -y apache2
       - run:

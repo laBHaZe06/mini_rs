@@ -37,6 +37,13 @@ jobs:
             fi
             echo "Le serveur a répondu avec succès avec le code HTTP $RESPONSE"
       - run:
+          name: Lancer les tests JavaScript avec Chrome
+          command: |
+            google-chrome --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 http://localhost/test.html &
+            sleep 5  # Attendre que Chrome démarre
+            # Utiliser un script pour récupérer les logs de la console
+            curl -s http://localhost:9222/json | jq '.[0].id' | xargs -I {} curl -s http://localhost:9222/session/{}/chromium/send_command --data '{"cmd":"Runtime.evaluate","params":{"expression":"console.log"}}
+      - run:
           name: Logs du serveur
           command: sudo cat /var/log/apache2/access.log
 

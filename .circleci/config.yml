@@ -16,6 +16,9 @@ jobs:
           name: Démarrer Apache
           command: sudo service apache2 start
       - run:
+          name: Copier le fichier test.html dans le répertoire Apache
+          command: sudo cp test.html /var/www/html/test.html
+      - run:
           name: Lister les fichiers dans /var/www/html
           command: ls -la /var/www/html
       - run:

@@ -13,27 +13,23 @@ jobs:
           name: Installer Apache
           command: sudo apt-get install -y apache2
       - run:
-          name: Démarrer Apache pour servir les fichiers
+          name: Démarrer Apache
+          command: sudo service apache2 start
+      - run:
+          name: Attendre que le serveur soit prêt
           command: |
-            sudo service apache2 start
             for i in {1..10}; do
               curl -s http://localhost/test.html && break || sleep 5
             done
       - run:
-          name: Démarrer D-Bus
-          command: sudo service dbus start
-      - run:
-          name: Installer Google Chrome
+          name: Tester le serveur avec curl
           command: |
-            sudo apt-get install -y wget
-            wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-            sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-            sudo apt-get update
-            sudo apt-get install -y google-chrome-stable
-      - run:
-          name: Chrome sans tête 
-          command: |
-            google-chrome --headless --disable-gpu --no-sandbox --disable-dev-shm-usage --remote-debugging-port=9222 --enable-logging=stderr --v=1 http://localhost/test.html
+            RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/test.html)
+            if [ "$RESPONSE" -ne 200 ]; then
+              echo "Erreur: le serveur a répondu avec le code HTTP $RESPONSE"
+              exit 1
+            fi
+            echo "Le serveur a répondu avec succès avec le code HTTP $RESPONSE"
       - run:
           name: Logs du serveur
           command: sudo cat /var/log/apache2/access.log

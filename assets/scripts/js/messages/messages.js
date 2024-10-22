@@ -34,7 +34,7 @@ function displayMessage() {
             convElement.innerHTML = `
                 <div class="conversation-in-progress" id="${conv.id}">
                     <h2>${conv.name}</h2>
-                    <img src="${conv.image}" alt="${conv.name}"/>
+                    <img src="${conv.image}" alt="${conv.name}" style="width: 5rem; height: 5rem; border-radius: 50%;"/>
                     <p>Dernier message : ${conv.messages[conv.messages.length - 1].content}</p>
                 </div>
             `;

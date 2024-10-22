@@ -22,11 +22,19 @@
     width: 40%;
 }
 .box-chat{
-    width: 100%;
+    width: 60%;
     margin-bottom: 1rem;
     margin-top: 3rem;
     border-radius: 5px;
     padding-top: 3px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
+}
+
+.chat-input {
+    display: flex;
+}
+
+.btn-chat {
+    margin-top: -rem;
 }

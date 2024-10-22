@@ -1,0 +1,25 @@
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: cimg/node:20.16.0-browsers
+    steps:
+      - checkout
+      - run:
+          name: Installer un serveur HTTP (optionnel)
+          command: sudo apt-get install -y apache2
+      - run:
+          name: Démarrer Apache pour servir les fichiers
+          command: sudo service apache2 start
+      - run:
+          name: Lancer Chrome sans tête pour exécuter les tests
+          command: |
+            google-chrome --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 --virtual-time-budget=10000 http://localhost/test.html
+      - run:
+          name: Vérifier les logs du serveur
+          command: sudo cat /var/log/apache2/access.log
+workflows:
+  test_workflow:
+    jobs:
+      - test

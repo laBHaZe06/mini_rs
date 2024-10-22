@@ -54,6 +54,12 @@ jobs:
               -d '{"cmd":"Runtime.evaluate","params":{"expression":"console.log"}}' \
               http://localhost:9222/session/$SESSION_ID/chromium/send_command
       - run:
+          name: Récupérer les logs de tests
+          command: |
+            echo "=== Récupération des résultats des tests ==="
+            # On peut utiliser un 'curl' pour récupérer les logs de test
+            curl http://localhost/test.html | grep "test-result" # Par exemple, pour afficher seulement les résultats des tests
+      - run:
           name: Logs du serveur
           command: sudo cat /var/log/apache2/access.log
 

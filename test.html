@@ -4,6 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tests</title>
+  <style>
+    .test-result {
+      margin: 10px 0;
+    }
+    .pass {
+      color: green;
+    }
+    .fail {
+      color: red;
+    }
+  </style>
 </head>
 <body>
     <h1>Résultats des tests</h1>
@@ -14,21 +25,30 @@
     <div id="conversations"></div>
     <div id="chatWindow"></div>
     
+    <div id="test-results"></div> <!-- Conteneur pour afficher les résultats des tests -->
+
     <script src="assets/scripts/js/content/content.js"></script>
     <script src="assets/scripts/js/feeds/feed.js"></script>
     <script src="assets/scripts/js/friends/friends.js"></script>
-    <script src="assets/scripts/js/messages/messages.js"></script>
     <script src="assets/scripts/js/messages/messages.js"></script>
     <script src="assets/scripts/js/components/sidebar/sidebar.js"></script>
     <script src="assets/scripts/js/components/avatar/avatar.js"></script>
     <script>
         // Fonction pour vérifier si les éléments générés par JS existent
         function assertEqual(actual, expected, message) {
+          const resultContainer = document.getElementById("test-results");
+          const result = document.createElement("div");
+          result.classList.add("test-result");
+
           if (actual === expected) {
-            console.log(`✅ ${message}`);
+            result.classList.add("pass");
+            result.textContent = `✅ ${message}`;
           } else {
-            console.error(`❌ ${message} - attendu: ${expected}, obtenu: ${actual}`);
+            result.classList.add("fail");
+            result.textContent = `❌ ${message} - attendu: ${expected}, obtenu: ${actual}`;
           }
+
+          resultContainer.appendChild(result); // Afficher le résultat dans le conteneur
         }
     
         // Tests pour feed.js

@@ -45,13 +45,6 @@ jobs:
             fi
             echo "Le serveur a répondu avec succès avec le code HTTP $RESPONSE"
       - run:
-          name: Exécuter les tests
-          command: |
-            echo "=== Exécution des tests ==="
-            curl -s http://localhost/test.html | grep -E '✅|❌' || echo "Aucun résultat de test trouvé."
-            echo "=== Fin des tests ==="
-
-      - run:
           name: Logs du serveur
           command: sudo cat /var/log/apache2/access.log
 

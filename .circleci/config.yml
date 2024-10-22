@@ -16,9 +16,18 @@ jobs:
           name: Démarrer Apache pour servir les fichiers
           command: sudo service apache2 start
       - run:
+          name: Installer Google Chrome
+          command: |
+            sudo apt-get install -y wget
+            wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+            sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+            sudo apt-get update
+            sudo apt-get install -y google-chrome-stable
+      - run:
           name: Lancer Chrome sans tête pour exécuter les tests
           command: |
             google-chrome --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 --virtual-time-budget=10000 http://localhost/test.html
+
       - run:
           name: Vérifier les logs du serveur
           command: sudo cat /var/log/apache2/access.log

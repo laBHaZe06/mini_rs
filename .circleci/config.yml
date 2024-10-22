@@ -10,13 +10,13 @@ jobs:
           name: Mettre à jour le cache de paquets
           command: sudo apt-get update
       - run:
-          name: Installer un serveur HTTP (optionnel)
+          name: serveur HTTP
           command: sudo apt-get install -y apache2
       - run:
           name: Démarrer Apache pour servir les fichiers
           command: sudo service apache2 start
       - run:
-          name: Installer Google Chrome
+          name: Google Chrome
           command: |
             sudo apt-get install -y wget
             wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -25,11 +25,11 @@ jobs:
             sudo apt-get install -y google-chrome-stable
             sudo apt-get install -y dbus
       - run:
-          name: Lancer Chrome sans tête pour exécuter les tests
+          name: Chrome sans tête 
           command: |
             google-chrome --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 --timeout=10000 http://localhost/test.html
       - run:
-          name: Vérifier les logs du serveur
+          name: Logs du serveur
           command: sudo cat /var/log/apache2/access.log
 workflows:
   test_workflow:

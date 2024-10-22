@@ -34,6 +34,7 @@ function displayMessage() {
             convElement.innerHTML = `
                 <div class="conversation-in-progress" id="${conv.id}">
                     <h2>${conv.name}</h2>
+                    <img src="${conv.image}" alt="${conv.name}"/>
                     <p>Dernier message : ${conv.messages[conv.messages.length - 1].content}</p>
                 </div>
             `;
@@ -138,10 +139,25 @@ function displayMessage() {
             // Mettre à jour l'affichage
             showConversation(conv);
             messageBox.value = ''; 
+
+            createDownloadableJSON(conversations);
         } else {
             console.error("Aucune conversation active trouvée pour cet ID :", activeConvId);
         }
     });
+
+    // Fonction pour créer un fichier JSON téléchargeable
+function createDownloadableJSON(data) {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }); // Créer un blob à partir des données
+    const url = URL.createObjectURL(blob); // Créer un lien URL pour le blob
+    const a = document.createElement('a'); // Créer un élément <a> pour le téléchargement
+    a.href = url;
+    a.download = 'messages.json'; // Nom du fichier
+    document.body.appendChild(a); // Ajouter l'élément à la page
+    a.click(); // Simuler un clic pour déclencher le téléchargement
+    document.body.removeChild(a); // Retirer l'élément de la page
+    URL.revokeObjectURL(url); // Révoquer l'URL après le téléchargement
+}
 
     // Charger les conversations au chargement de la page
     loadConversations();

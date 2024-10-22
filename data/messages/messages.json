@@ -2,6 +2,7 @@
     {
       "id": 1,
       "name": "Emilie",
+      "image": "https://images.unsplash.com/photo-1602526433901-9681fbf4c706?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "messages": [
         { "sender": "Emilie", "content": "Salut, comment ça va ?", "time": "10:00" }
       ]
@@ -9,6 +10,7 @@
     {
       "id": 2,
       "name": "Jacky",
+      "image": "https://images.unsplash.com/photo-1721332155484-5aa73a54c6d2?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "messages": [
         { "sender": "Jacky", "content": "On commence quand le projet ?", "time": "09:00" }
       ]
@@ -16,6 +18,7 @@
     {
         "id": 3,
         "name": "Dupont",
+        "image": "https://images.unsplash.com/photo-1602526433901-9681fbf4c706?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "messages": [
           { "sender": "Dupont", "content": "On se voit today ?", "time": "09:10" }
         ]

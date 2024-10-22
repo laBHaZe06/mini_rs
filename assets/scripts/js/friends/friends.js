@@ -74,7 +74,7 @@
                 <p>Email : ${friend.email} </p>
                 <p>Téléphone: ${friend.phone}</p>
                 <p>Adresse: ${friend.address}</p>
-                <a class="sidebar-link" data-target="messages/messages"><i class="fa-solid fa-message"></i>&nbsp;Envoyer message</a>
+                <a class="sidebar-link" data-target="messages/message"><i class="fa-solid fa-message"></i>&nbsp;Envoyer message</a>
                     </div>
                     <div class="reactions">
                     <button onclick="likefriend(${friend.id})"><span id="like-${friend.id}"><i class="fa-regular fa-thumbs-up"></i>&nbsp;&nbsp;${friend.reactions.like}</span></button>
@@ -84,6 +84,16 @@
   
               friendElement.innerHTML = friendContent;
               friendEl.appendChild(friendElement);
+        });
+
+        const messageLinks = document.querySelectorAll('.sidebar-link');
+        messageLinks.forEach(link => {
+          // écouteur d'événements pour chaque lien "Envoyer message"
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); 
+                const target = this.getAttribute('data-target'); 
+                loadContent(target); 
+            });
         });
   }
   

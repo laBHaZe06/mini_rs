@@ -40,7 +40,7 @@
         const resultContainer = document.getElementById("test-results");
         const result = document.createElement("div");
         result.classList.add("test-result");
-
+        console.log(`Actual: ${actual}, Expected: ${expected}`);
         if (actual === expected) {
           result.classList.add("pass");
           result.textContent = `✅ ${message}`; // Affiche succès
@@ -72,6 +72,7 @@
         const message = document.createElement("div");
         message.textContent = "Conversation de test"; // Simule une conversation
         conversations.appendChild(message);
+        
       }
 
       // Tests pour feed.js
@@ -102,6 +103,7 @@
         testFriends();
         testMessages();
         console.log("=== Fin des tests ===");
+        console.log("État du DOM : ", document.body.innerHTML);
       };
   </script>
 </body>

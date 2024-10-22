@@ -27,7 +27,7 @@ jobs:
       - run:
           name: Lancer Chrome sans tête pour exécuter les tests
           command: |
-            google-chrome --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 --disable-software-rasterizer --log-level=3 http://localhost/test.html
+            google-chrome --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 --timeout=10000 http://localhost/test.html
       - run:
           name: Vérifier les logs du serveur
           command: sudo cat /var/log/apache2/access.log

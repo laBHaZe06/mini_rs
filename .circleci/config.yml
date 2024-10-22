@@ -13,6 +13,14 @@ jobs:
           name: Installer Apache
           command: sudo apt-get install -y apache2
       - run:
+          name: Installer Google Chrome
+          command: |
+            sudo apt-get install -y wget
+            wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+            echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+            sudo apt-get update
+            sudo apt-get install -y google-chrome-stable
+      - run:
           name: Démarrer Apache
           command: sudo service apache2 start
       - run:
@@ -39,10 +47,12 @@ jobs:
       - run:
           name: Lancer les tests JavaScript avec Chrome
           command: |
-            google-chrome --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 http://localhost/test.html &
+            /usr/bin/google-chrome --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 http://localhost/test.html &
             sleep 5  # Attendre que Chrome démarre
-            # Utiliser un script pour récupérer les logs de la console
-            curl -s http://localhost:9222/json | jq '.[0].id' | xargs -I {} curl -s http://localhost:9222/session/{}/chromium/send_command --data '{"cmd":"Runtime.evaluate","params":{"expression":"console.log"}}
+            SESSION_ID=$(curl -s http://localhost:9222/json | jq -r '.[0].id')
+            curl -s -X POST -H "Content-Type: application/json" \
+              -d '{"cmd":"Runtime.evaluate","params":{"expression":"console.log"}}' \
+              http://localhost:9222/session/$SESSION_ID/chromium/send_command
       - run:
           name: Logs du serveur
           command: sudo cat /var/log/apache2/access.log

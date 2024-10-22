@@ -16,6 +16,9 @@ jobs:
           name: Démarrer Apache
           command: sudo service apache2 start
       - run:
+          name: Lister les fichiers dans /var/www/html
+          command: ls -la /var/www/html
+      - run:
           name: Attendre que le serveur soit prêt
           command: |
             for i in {1..10}; do

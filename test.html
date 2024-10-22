@@ -33,6 +33,7 @@
     <script src="assets/scripts/js/messages/messages.js"></script>
     <script src="assets/scripts/js/components/sidebar/sidebar.js"></script>
     <script src="assets/scripts/js/components/avatar/avatar.js"></script>
+    
     <script>
         // Fonction pour vérifier si les éléments générés par JS existent
         function assertEqual(actual, expected, message) {
@@ -42,38 +43,57 @@
 
           if (actual === expected) {
             result.classList.add("pass");
-            result.textContent = `✅ ${message}`;
+            result.textContent = `✅ ${message}`; // Affiche succès
           } else {
             result.classList.add("fail");
-            result.textContent = `❌ ${message} - attendu: ${expected}, obtenu: ${actual}`;
+            result.textContent = `❌ ${message} - attendu: ${expected}, obtenu: ${actual}`; // Affiche échec
           }
 
           resultContainer.appendChild(result); // Afficher le résultat dans le conteneur
         }
     
+        // Fonctions pour afficher des éléments de test
         function displayPost() {
           const feed = document.getElementById("feed-post");
-          // Crée un post de test
           const post = document.createElement("div");
-          post.textContent = "Post de test"; // Simule l'ajout d'un post
+          post.textContent = "Post de test"; // Simule un post
           feed.appendChild(post);
-      }
+        }
 
-      function displayFriend() {
+        function displayFriend() {
           const friendPost = document.getElementById("friend-post");
-          // Crée un ami de test
           const friend = document.createElement("div");
-          friend.textContent = "Ami de test"; // Simule l'ajout d'un ami
+          friend.textContent = "Ami de test"; // Simule un ami
           friendPost.appendChild(friend);
-      }
+        }
 
-      function displayMessage() {
+        function displayMessage() {
           const conversations = document.getElementById("conversations");
-          // Crée une conversation de test
           const message = document.createElement("div");
-          message.textContent = "Conversation de test"; // Simule l'ajout d'une conversation
+          message.textContent = "Conversation de test"; // Simule une conversation
           conversations.appendChild(message);
-      }
+        }
+
+        // Tests pour feed.js
+        function testFeed() {
+          displayPost();
+          const feed = document.getElementById("feed-post");
+          assertEqual(feed.children.length > 0, true, "Les posts doivent être affichés dans le feed.");
+        }
+    
+        // Tests pour friends.js
+        function testFriends() {
+          displayFriend();
+          const friendPost = document.getElementById("friend-post");
+          assertEqual(friendPost.children.length > 0, true, "Les amis doivent être affichés.");
+        }
+    
+        // Tests pour messages.js
+        function testMessages() {
+          displayMessage();
+          const conversations = document.getElementById("conversations");
+          assertEqual(conversations.children.length > 0, true, "Les conversations doivent être affichées.");
+        }
     
         // Lancer tous les tests au chargement de la page
         window.onload = function() {
@@ -82,10 +102,7 @@
           testFriends();
           testMessages();
           console.log("=== Fin des tests ===");
-          // Afficher les résultats des tests dans le conteneur ici pour voir les messages de log
-          const resultContainer = document.getElementById("test-results");
-          console.log(resultContainer.innerHTML); 
         };
-      </script>
+    </script>
 </body>
 </html>

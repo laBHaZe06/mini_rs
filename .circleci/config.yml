@@ -57,8 +57,8 @@ jobs:
           name: Récupérer et afficher les résultats des tests
           command: |
             echo "=== Récupération des résultats des tests ==="
-            curl -s http://localhost/test.html | grep -E 'test-result|pass|fail'
-            echo "=========================================="
+            curl -s http://localhost/test.html | sed -n 's/.*<div class="test-result">\([^<]*\)<\/div>.*/\1/p'
+            echo "============FIN TESTS============================"
       - run:
           name: Logs du serveur
           command: sudo cat /var/log/apache2/access.log

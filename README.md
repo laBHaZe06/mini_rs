@@ -1,6 +1,6 @@
 # Exercice de Réseau Social
 
-#TechLinker
+# TechLinker
 
 Ce projet est un exercice d'interface utilisateur d'un réseau social, développé en HTML, CSS et JavaScript pur. 
 

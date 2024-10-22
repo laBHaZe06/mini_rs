@@ -1,9 +1,12 @@
 :root {
-    --success: ;
-    --warning: ;
-    --danger: ;
-    --primary: ;
+    --success: #76d1c5a8;
+    --warning: rgba(206, 183, 82, 0.863);
+    --danger: rgba(219, 75, 75, 0.788);
+    --primary: rgb(123, 123, 218);
     --white: rgb(235, 232, 232);
+    --purple: #c09dddbe;
+
+    --border: #464b4abe;
 
     --linear-1: linear-gradient(to right top, #3f5764, #3f6583, #4c71a3, #6b79bf, #977dd4);
     --linear-2: ;

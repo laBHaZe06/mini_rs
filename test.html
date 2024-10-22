@@ -9,10 +9,9 @@
     <h1>Résultats des tests</h1>
   
     <!-- Conteneurs pour afficher les éléments générés par les fonctions -->
-    <div id="feed-post"></div>
-    <div id="friend-post"></div>
-    <div id="conversations"></div>
-    <div id="chatWindow"></div>
+    <div id="feed-test-post"></div>
+    <div id="friend-test-post"></div>
+    <div id="conversations-test"></div>
     
     <script src="assets/scripts/js/content/content.js"></script>
     <script src="assets/scripts/js/feeds/feed.js"></script>
@@ -34,21 +33,21 @@
         // Tests pour feed.js
         function testFeed() {
           displayPost();
-          const feed = document.getElementById("feed-post");
+          const feed = document.getElementById("feed-test-post");
           assertEqual(feed.children.length > 0, true, "Les posts doivent être affichés dans le feed.");
         }
     
         // Tests pour friends.js
         function testFriends() {
           displayFriend();
-          const friendPost = document.getElementById("friend-post");
+          const friendPost = document.getElementById("friend-test-post");
           assertEqual(friendPost.children.length > 0, true, "Les amis doivent être affichés.");
         }
     
         // Tests pour messages.js
         function testMessages() {
           displayMessage();
-          const conversations = document.getElementById("conversations");
+          const conversations = document.getElementById("conversations-test");
           assertEqual(conversations.children.length > 0, true, "Les conversations doivent être affichées.");
         }
     

@@ -3,6 +3,7 @@
     display: none;
   }
 }
+
 @media only screen and (max-width: 768px) {
   .toggle-btn {
     display: none; /* Cache le bouton de la sidebar en haut */
@@ -14,7 +15,9 @@
   .friend-presentation{
     width: 100%;
   }
-  
+  .progress-chat{
+    width: 90%
+}
   /* Affiche le menu en bas de l'écran sur mobile */
   .center-btn-resp  {
     display: flex;

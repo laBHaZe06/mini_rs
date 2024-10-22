@@ -43,8 +43,8 @@ h1.title-rs{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-image: var(--linear-1);
-    color: white;
+    background: var(--linear-1);
+    color: var(--white);
     padding: 0;
     position: sticky;
     top: 0;
@@ -89,7 +89,7 @@ h1.title-rs{
     padding: 3px;
     text-decoration: none;
     font-size: 18px;
-    color: white;
+    color: var(--white);
     display: block;
     transition: 0.3s;
     position: relative;
@@ -237,7 +237,7 @@ h1.title-rs{
   }
   
   .reactions button {
-    background: #c09dddbe;
+    background: var(--purple);
     border: none;
     border-radius: 15px;
     padding: 10px 15px;
@@ -273,11 +273,10 @@ h1.title-rs{
   }
 
   .comments .btn-form-com {
- 
     padding: 10px;
     border-radius: 15px;
     border: 1px solid #464b4abe;
-    background: #76d1c5a8;
+    background: var(--success);
     cursor: pointer;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -286,7 +285,7 @@ h1.title-rs{
 .btn-com{
   padding: 10px;
   border-radius: 15px;
-  border: 1px solid #464b4abe;
+  border: 1px solid var(--border);
   background: #dac4a3;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -294,7 +293,7 @@ h1.title-rs{
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
   .comments-content{
-    border: 1px solid rgba(83, 83, 83, 0.637);
+    border: 1px solid var(--border);
     width: 25rem;
     border-radius: 5px;
     overflow-y: auto;

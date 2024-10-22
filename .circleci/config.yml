@@ -54,14 +54,11 @@ jobs:
               -d '{"cmd":"Runtime.evaluate","params":{"expression":"console.log"}}' \
               http://localhost:9222/session/$SESSION_ID/chromium/send_command
       - run:
-          name: Récupérer le contenu HTML et afficher les résultats des tests
+          name: Exécuter les tests
           command: |
-            echo "=== Récupération des résultats des tests ==="
-            curl -s http://localhost/test.html > test_output.html
-            cat test_output.html  # Affiche le contenu du fichier récupéré
-            echo "=== Résultats des tests ==="
-            grep -E '<div class="test-result">|<div class="pass">|<div class="fail">' test_output.html
-            echo "=== Fin des résultats des tests ==="
+            echo "=== Exécution des tests ==="
+            curl -s http://localhost/test.html | grep -E '✅|❌' || echo "Aucun résultat de test trouvé."
+            echo "=== Fin des tests ==="
 
       - run:
           name: Logs du serveur

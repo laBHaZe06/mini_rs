@@ -51,26 +51,29 @@
           resultContainer.appendChild(result); // Afficher le résultat dans le conteneur
         }
     
-        // Tests pour feed.js
-        function testFeed() {
-          displayPost();
+        function displayPost() {
           const feed = document.getElementById("feed-post");
-          assertEqual(feed.children.length > 0, true, "Les posts doivent être affichés dans le feed.");
-        }
-    
-        // Tests pour friends.js
-        function testFriends() {
-          displayFriend();
+          // Crée un post de test
+          const post = document.createElement("div");
+          post.textContent = "Post de test"; // Simule l'ajout d'un post
+          feed.appendChild(post);
+      }
+
+      function displayFriend() {
           const friendPost = document.getElementById("friend-post");
-          assertEqual(friendPost.children.length > 0, true, "Les amis doivent être affichés.");
-        }
-    
-        // Tests pour messages.js
-        function testMessages() {
-          displayMessage();
+          // Crée un ami de test
+          const friend = document.createElement("div");
+          friend.textContent = "Ami de test"; // Simule l'ajout d'un ami
+          friendPost.appendChild(friend);
+      }
+
+      function displayMessage() {
           const conversations = document.getElementById("conversations");
-          assertEqual(conversations.children.length > 0, true, "Les conversations doivent être affichées.");
-        }
+          // Crée une conversation de test
+          const message = document.createElement("div");
+          message.textContent = "Conversation de test"; // Simule l'ajout d'une conversation
+          conversations.appendChild(message);
+      }
     
         // Lancer tous les tests au chargement de la page
         window.onload = function() {

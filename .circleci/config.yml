@@ -10,22 +10,26 @@ jobs:
           name: Mettre à jour le cache de paquets
           command: sudo apt-get update
       - run:
-          name: serveur HTTP
+          name: Installer Apache
           command: sudo apt-get install -y apache2
       - run:
           name: Démarrer Apache pour servir les fichiers
-          command: 
+          command: |
             sudo service apache2 start
-            curl http://localhost/test.html
+            for i in {1..10}; do
+              curl -s http://localhost/test.html && break || sleep 5
+            done
       - run:
-          name: Google Chrome
+          name: Démarrer D-Bus
+          command: sudo service dbus start
+      - run:
+          name: Installer Google Chrome
           command: |
             sudo apt-get install -y wget
             wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
             sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
             sudo apt-get update
             sudo apt-get install -y google-chrome-stable
-            sudo apt-get install -y dbus    
       - run:
           name: Chrome sans tête 
           command: |
@@ -33,6 +37,7 @@ jobs:
       - run:
           name: Logs du serveur
           command: sudo cat /var/log/apache2/access.log
+
 workflows:
   test_workflow:
     jobs:

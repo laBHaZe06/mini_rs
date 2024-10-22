@@ -28,17 +28,56 @@ function displayMessage() {
         conversations.forEach(conv => {
             const convElement = document.createElement('div');
             convElement.classList.add('conversation');
+            convElement.setAttribute('draggable', 'true'); // Rendre la conversation déplaçable
+            convElement.dataset.id = conv.id; // Stocker l'ID dans les données
+
             convElement.innerHTML = `
-            <div class="conversation-in-progress" id="${conv.id}">
-                <h2>${conv.name}</h2>
-                <p>Dernier message : ${conv.messages[conv.messages.length - 1].content}</p>
-            </div>
+                <div class="conversation-in-progress" id="${conv.id}">
+                    <h2>${conv.name}</h2>
+                    <p>Dernier message : ${conv.messages[conv.messages.length - 1].content}</p>
+                </div>
             `;
+
+            // Ajouter les événements pour le drag and drop
+            convElement.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text/plain', convElement.dataset.id); // Stocker l'ID de la conversation
+                e.target.classList.add('dragging'); // Ajouter une classe pour le style
+            });
+
+            convElement.addEventListener('dragend', (e) => {
+                e.target.classList.remove('dragging'); // Retirer la classe après le drag
+            });
+
             convElement.addEventListener('click', () => {
                 console.log("Conversation cliquée :", conv.id); // Log de la conversation cliquée
                 showConversation(conv); // Affiche la conversation
             });
+
+            // Ajout de l'élément conversation au conteneur
             convContainer.appendChild(convElement);
+        });
+
+        // Gérer le drag over pour permettre le drop
+        convContainer.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        // Gérer le drop
+        convContainer.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const id = e.dataTransfer.getData('text/plain'); // Récupérer l'ID de la conversation déplacée
+            const draggedConvIndex = conversations.findIndex(c => c.id === parseInt(id));
+            const targetConvIndex = Array.from(convContainer.children).indexOf(e.target.closest('.conversation'));
+
+            if (draggedConvIndex !== -1 && targetConvIndex !== -1 && draggedConvIndex !== targetConvIndex) {
+                // Réorganiser la liste des conversations
+                const [draggedConv] = conversations.splice(draggedConvIndex, 1); // Supprimer la conversation déplacée
+                conversations.splice(targetConvIndex, 0, draggedConv); // Insérer à la nouvelle position
+                console.log("Conversations réorganisées :", conversations);
+
+                // Mettre à jour l'affichage
+                renderConversations();
+            }
         });
     }
 

@@ -45,15 +45,6 @@ jobs:
             fi
             echo "Le serveur a répondu avec succès avec le code HTTP $RESPONSE"
       - run:
-          name: Lancer les tests JavaScript avec Chrome
-          command: |
-            /usr/bin/google-chrome --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 http://localhost/test.html &
-            sleep 5  # Attendre que Chrome démarre
-            SESSION_ID=$(curl -s http://localhost:9222/json | jq -r '.[0].id')
-            curl -s -X POST -H "Content-Type: application/json" \
-              -d '{"cmd":"Runtime.evaluate","params":{"expression":"console.log"}}' \
-              http://localhost:9222/session/$SESSION_ID/chromium/send_command
-      - run:
           name: Exécuter les tests
           command: |
             echo "=== Exécution des tests ==="

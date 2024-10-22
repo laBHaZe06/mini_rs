@@ -14,7 +14,9 @@ jobs:
           command: sudo apt-get install -y apache2
       - run:
           name: Démarrer Apache pour servir les fichiers
-          command: sudo service apache2 start
+          command: 
+            sudo service apache2 start
+            curl http://localhost/test.html
       - run:
           name: Google Chrome
           command: |
@@ -23,11 +25,11 @@ jobs:
             sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
             sudo apt-get update
             sudo apt-get install -y google-chrome-stable
-            sudo apt-get install -y dbus
+            sudo apt-get install -y dbus    
       - run:
           name: Chrome sans tête 
           command: |
-            google-chrome --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 --timeout=10000 http://localhost/test.html
+            google-chrome --headless --disable-gpu --no-sandbox --disable-dev-shm-usage --remote-debugging-port=9222 --enable-logging=stderr --v=1 http://localhost/test.html
       - run:
           name: Logs du serveur
           command: sudo cat /var/log/apache2/access.log
